@@ -1,5 +1,7 @@
 package model;
 
 public enum RPSEnum {
-    ROCK, PAPER, SCISSORS
+    ROCK,
+    PAPER ,
+    SCISSORS
 }
