@@ -5,30 +5,12 @@
     <parameter name="rock" value="ROCK"/>
     <parameter name="scissors" value="SCISSORS"/>
 
-    <test name="testWinPlay">
+    <test name="testRPS">
         <classes>
-            <class name="tests.RockPaperScissorsTest">
+            <class name="RockPaperScissorsTest">
                 <methods>
                     <include name="testWinPlay"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="testTiePlay">
-        <classes>
-            <class name="tests.RockPaperScissorsTest">
-                <methods>
                     <include name="testTiePlay"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="testLostPlay">
-        <classes>
-            <class name="tests.RockPaperScissorsTest">
-                <methods>
                     <include name="testLostPlay"/>
                 </methods>
             </class>

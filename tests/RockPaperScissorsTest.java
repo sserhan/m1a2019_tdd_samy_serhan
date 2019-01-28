@@ -1,11 +1,7 @@
-package tests;
-
-import model.RPSEnum;
-import model.Result;
-import model.RockPaperScissors;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import main.java.model.RPSEnum;
+import main.java.model.Result;
+import main.java.model.RockPaperScissors;
+import org.testng.annotations.*;
 
 import static org.testng.Assert.*;
 
@@ -25,19 +21,19 @@ public class RockPaperScissorsTest {
 
     @Parameters({ "paper" ,"rock" })
     @Test
-    public void testWinPlay(@Optional("paper") String p1,@Optional("rock") String p2){
+    public void testWinPlay( String p1, String p2){
         assertEquals(rps.play(RPSEnum.valueOf(p1), RPSEnum.valueOf(p2)), Result.WIN);
     }
 
     @Parameters({"paper","paper"})
     @Test
-    void testTiePlay(@Optional("paper") String p1, @Optional("paper") String p2){
+    void testTiePlay(String p1,String p2){
         assertEquals(rps.play(RPSEnum.valueOf(p1),RPSEnum.valueOf(p2)), Result.TIE);
     }
 
     @Parameters({"rock","paper"})
     @Test
-    void testLostPlay(@Optional("rock") String p1, @Optional("paper") String p2){
+    void testLostPlay(String p1,String p2){
         assertEquals(rps.play(RPSEnum.valueOf(p1),RPSEnum.valueOf(p2)), Result.LOST);
     }
 }
