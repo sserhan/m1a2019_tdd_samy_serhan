@@ -12,7 +12,7 @@ pipeline {
 	}
 	 stage('Install') {
             steps {
-                bat 'mvn install'
+                bat 'mvn install -DskipTests'
             }
 	 }
 	    stage('Sonar'){
