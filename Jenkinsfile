@@ -1,25 +1,24 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
+    agent any
+	tools{
+		maven 'Maven'
+		jdk 'jdk'
+	}
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                bat 'mvn clean' 
             }
-        }
-        stage('Install') {
+	}
+	 stage('Install') {
             steps {
-                sh 'mvn install'
+                bat 'mvn install'
             }
-        }
-        stage('Package') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-    }
+	 }
+	    stage('Sonar'){
+		    steps{
+		    bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=d9b8082d2e909663d06cf394f1b38e51e07e292a -Dsonar.analysis.mode=publish -Dsonar.projectKey=jee2' 
+		    }
+	    }
+     }
 }
